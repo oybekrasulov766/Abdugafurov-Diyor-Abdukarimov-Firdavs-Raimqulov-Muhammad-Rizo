@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Neon Arkada O'yinlari</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Animatsiyali neon fon -->
+    <canvas id="bgCanvas"></canvas>
+
+    <!-- Asosiy Menyu Ekoni -->
+    <div class="main-container" id="menuScreen">
+        <h1 class="neon-title">NEON ARKADA</h1>
+        
+        <div class="menu">
+            <div class="game-card" id="card-snake"><span>🐍</span>ILONCHA</div>
+            <div class="game-card" id="card-tetris"><span>🧱</span>TETRIS</div>
+            <div class="game-card" id="card-flappy"><span>🐦</span>FLAPPY</div>
+        </div>
+
+        <button class="btn btn-settings" id="openSettingsBtn">⚙️ Sozlamalar</button>
+    </div>
+
+    <!-- Sozlamalar oynasi (Modal) -->
+    <div id="settingsModal" class="modal">
+        <div class="modal-content">
+            <h2>SOZLAMALAR</h2>
+            <hr style="border-color: var(--neon-purple); margin-bottom: 20px;">
+            
+            <div class="setting-item">
+                <label>Ovoz balandligi: <span id="volValue">50%</span></label>
+                <input type="range" id="volumeControl" min="0" max="1" step="0.1" value="0.5">
+            </div>
+            
+            <div class="setting-item">
+                <label>O'yin tezligi: <span id="sensValue">x1.0</span></label>
+                <input type="range" id="sensControl" min="0.5" max="2" step="0.1" value="1">
+            </div>
+            
+            <div class="setting-item">
+                <label for="controlType">Boshqaruv turi:</label>
+                <select id="controlType">
+                    <option value="pc">Klaviatura (Kompyuter uchun)</option>
+                    <option value="mobile">Ekrandagi tugmalar (Telefon uchun)</option>
+                </select>
+            </div>
+            
+            <button class="btn" id="closeSettingsBtn" style="margin-top: 10px;">Saqlash</button>
+        </div>
+    </div>
+
+    <!-- Faol O'yin Maydoni -->
+    <div id="gameWrapper">
+        <div class="hud">
+            <span id="scoreLabel">XOL: 0</span>
+            <span id="gameTitle">O'YIN</span>
+        </div>
+        
+        <div class="canvas-container">
+            <canvas id="gameCanvas"></canvas>
+        </div>
+
+        <!-- Mobil Qurilmalar Uchun Joystik (D-Pad) -->
+        <div id="mobileControls" class="dpad">
+            <button class="dpad-btn up" id="padUp">▲</button>
+            <div class="dpad-row">
+                <button class="dpad-btn left" id="padLeft">◀</button>
+                <button class="dpad-btn right" id="padRight">▶</button>
+            </div>
+            <button class="dpad-btn down" id="padDown">▼</button>
+        </div>
+
+        <button class="btn btn-exit" id="exitGameBtn">MENYUGA QAYTISH</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
